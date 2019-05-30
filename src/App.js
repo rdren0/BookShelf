@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Container from "./Components/Container";
+import { fetchBooks } from "./API/fetch";
+import { connect } from "react-redux";
+import { getStartingBooks } from "./Actions";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export class App extends Component {
+  constructor() {
+    super();
+    this.state = { books:[] };
+    
+  }
+
+  fetchFirstBooks = async () => {
+    let result = await fetchBooks().then(results => this.props.getStartingBooks(results.items))
+    console.log(result.books)
+  }
+
+  componentDidMount = () => {
+    this.fetchFirstBooks()
+  };
+
+  render() {
+    return (
+      <div>
+      <h1>Bookshelf</h1>
+        <Container />
+      </div>
+    );
+  }
 }
+export const mapStateToProps = state => ({
+  books: state.books
+});
+export const mapDispatchToProps = dispatch => ({
+  getStartingBooks: books => dispatch(getStartingBooks(books))
+});
 
-export default App;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
