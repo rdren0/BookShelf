@@ -3,6 +3,8 @@ import Container from "./Components/Container";
 import { fetchBooks } from "./API/fetch";
 import { connect } from "react-redux";
 import { getStartingBooks } from "./Actions";
+import { key } from './API/key';
+
 
 
 export class App extends Component {
@@ -13,7 +15,7 @@ export class App extends Component {
   }
 
   fetchFirstBooks = async () => {
-    let result = await fetchBooks().then(results => this.props.getStartingBooks(results.items))
+    let result = await fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=React.js&orderBy=newest&key=${key}`).then(results => this.props.getStartingBooks(results.items))
     this.setState({
       books:result.books})
   }
