@@ -29,4 +29,15 @@ describe("fetch calls", () => {
     const result = await fetchBooks(URL);
     expect(result).toEqual(mockBooks);
   });
+  it("should throw an error if something goes wrong on the server side", async () => {
+    window.fetch = jest.fn(() =>
+      Promise.resolve({
+        status: 500,
+        ok: false,
+        json: jest.fn(() => Promise.resolve("Failed to get Books"))
+      })
+    );
+    const expected = new Error("Failed to get Books");
+    await expect(fetchBooks(URL, undefined)).rejects.toEqual(expected);
+  });
 })
