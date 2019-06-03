@@ -14,6 +14,7 @@ describe("App", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+
   describe("mapStateToProps", () => {
     it("should set props as an object with an array from state", () => {
       const mockState = {
@@ -29,13 +30,15 @@ describe("App", () => {
           {id: 2, title:"Jurrasic Park"}
         ] 
       };
-
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
     });
   });
+
+
+
   describe("mapDispatchToProps", () => {
-    it("should call dispatch on allNotes", () => {
+    it("should call dispatch on getStartingBooks", () => {
       const mockDispatch = jest.fn();
       const mockState = {
         books: [
@@ -49,4 +52,11 @@ describe("App", () => {
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
+
+
+  
+
+
+
+
 });
