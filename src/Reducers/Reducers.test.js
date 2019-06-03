@@ -1,10 +1,12 @@
+
+
 import { allBooks } from './allBooks'
 import * as actions from "../Actions";
 
 
 
 describe('allBooksReducer', () => {
-    it('should return the state when case is not "FIRST_BOOKS"', () => {
+    it('should return initial state', () => {
         const expected = [];
         const result = allBooks(undefined,[]);
         expect(result).toEqual(expected);
@@ -16,3 +18,6 @@ describe('allBooksReducer', () => {
     })
 
 })
+
+
+
