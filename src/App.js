@@ -14,7 +14,8 @@ export class App extends Component {
 
   fetchFirstBooks = async () => {
     let result = await fetchBooks().then(results => this.props.getStartingBooks(results.items))
-    console.log(result.books)
+    this.setState({
+      books:result.books})
   }
 
   componentDidMount = () => {
@@ -25,6 +26,7 @@ export class App extends Component {
     return (
       <div>
       <h1>Bookshelf</h1>
+      
         <Container />
       </div>
     );
