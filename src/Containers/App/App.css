@@ -20,9 +20,8 @@
   nav{
     height: 70px;
     display: flex;
-    overflow: auto
+    overflow: scroll;
   }
-
   button{
     height: 70px;
     width: 400px;
@@ -42,4 +41,19 @@
 button.side-by-side{
   width: 40px;
   margin: 10px;
+}
+
+.search-button{
+  width:40px;
+  height: 63px;
+  margin: -2px;
+}
+
+.search-input{
+  width: 255px;
+  height: 60px;
+  background-color: gainsboro;
+  border: 1px soldi black;
+  margin-bottom: 2px
+
 }

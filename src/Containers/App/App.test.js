@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { App, mapStateToProps, mapDispatchToProps } from "./App";
-import { getStartingBooks } from "./Actions";
+import { getBooks } from "../../Actions/index";
 
 describe("App", () => {
   let wrapper;
@@ -35,7 +35,7 @@ describe("App", () => {
   });
 
   describe("mapDispatchToProps", () => {
-    it("should call dispatch on getStartingBooks", () => {
+    it("should call dispatch on getBooks", () => {
       const mockDispatch = jest.fn();
       const mockState = {
         books: [
@@ -43,9 +43,9 @@ describe("App", () => {
           { id: 2, title: "Jurrasic Park" }
         ]
       };
-      const actionToDispatch = getStartingBooks(mockState);
+      const actionToDispatch = getBooks(mockState);
       const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.getStartingBooks(mockState);
+      mappedProps.getBooks(mockState);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
