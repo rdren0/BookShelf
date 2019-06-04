@@ -1,5 +1,5 @@
-export const getStartingBooks = (books) => ({
-    type: "FIRST_BOOKS",
+export const getBooks = (books) => ({
+    type: "BOOKS",
     books
   });
 
@@ -8,7 +8,12 @@ export const getStartingBooks = (books) => ({
     message
   })
 
-  export const addFavorites = (book) =>({
-    type: "FAVORITE_BOOK",
-    book
+  export const addFavorite = (id) => ({
+    type: "ADD_FAVORITE",
+    id
+  })
+  
+  export const deleteFavorite = (id) => ({
+    type: "DELETE_FAVORITE",
+    id
   })

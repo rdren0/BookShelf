@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getStartingBooks, addFavorites } from "../../Actions/index";
+import { Link } from "react-router-dom";
+
 
 export class Book extends Component {
-  addFavorite = () => {
-    this.props.addFavorites(this.props.book.id);
+  
+  addFavorite = (book, value) => {
+    this.props.alterFavorites(book,value);
   };
 
   render() {
@@ -12,26 +13,19 @@ export class Book extends Component {
     return (
       <div className="book">
         <h5>{book.volumeInfo.title}</h5>
+        <Link to={`/${book.id}`}>
+
         {book.volumeInfo.imageLinks && (
           <img src={book.volumeInfo.imageLinks.thumbnail} alt="test" />
         )}
+        </Link>
         <p>{book.volumeInfo.authors}</p>
-        <h6 onClick={() => this.addFavorite()}>CLICK HERE</h6>
+
+        <h6 onClick={() => this.addFavorite(this.props.book, "add")}>ADD</h6>
+        <h6 onClick={() => this.addFavorite(this.props.book.id, "delete")}>DELETE</h6>
       </div>
     );
   }
 }
 
-export const mapStateToProps = state => ({
-  books: state.books,
-  favorites: state.favorites
-});
-export const mapDispatchToProps = dispatch => ({
-  getStartingBooks: books => dispatch(getStartingBooks(books)),
-  addFavorites: book => dispatch(addFavorites(book))
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Book);
+export default Book;

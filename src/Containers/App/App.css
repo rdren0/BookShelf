@@ -16,3 +16,30 @@
     padding: 20px;
     cursor: pointer;
   }
+
+  nav{
+    height: 70px;
+    display: flex;
+    overflow: auto
+  }
+
+  button{
+    height: 70px;
+    width: 400px;
+    min-width: 100px;
+    border: 1px solid black;
+  }
+
+  p{
+    width: 320px;
+  }
+
+.purchase{
+  display: flex;
+  flex-flow: row
+}
+
+button.side-by-side{
+  width: 40px;
+  margin: 10px;
+}

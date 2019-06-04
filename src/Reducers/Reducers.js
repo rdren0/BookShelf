@@ -1,7 +1,11 @@
 export const favoriteABook = (state = [], action) => {
   switch (action.type) {
-    case "FAVORITE_BOOK":
-      return [...state, action.book];
+    case "ADD_FAVORITE":
+      console.log(state)
+      return [...state, action.id];
+    case "DELETE_FAVORITE":
+    console.log(state)
+      return state.filter(id => id !== action.id);
     default:
       return state;
   }
@@ -9,7 +13,7 @@ export const favoriteABook = (state = [], action) => {
 
 export const allBooks = (state = [], action) => {
   switch (action.type) {
-    case "FIRST_BOOKS":
+    case "BOOKS":
       return action.books;
     default:
       return state;
