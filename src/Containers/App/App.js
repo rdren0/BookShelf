@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Container from "./Components/Container/Container";
-import { fetchBooks } from "./API/fetch";
+import Container from "../../Components/Container/Container";
+import { fetchBooks } from "../../API/fetch";
 import { connect } from "react-redux";
-import { getStartingBooks, addFavorites } from "./Actions";
-import { key } from "./API/key";
+import { getStartingBooks, addFavorites } from "../../Actions";
+import { key } from "../../API/key";
 
 export class App extends Component {
   constructor() {
