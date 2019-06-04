@@ -7,3 +7,8 @@ export const getStartingBooks = (books) => ({
     type: "AN_ERROR",
     message
   })
+
+  export const addFavorites = (book) =>({
+    type: "FAVORITE_BOOK",
+    book
+  })

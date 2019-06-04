@@ -1,31 +1,36 @@
-
 import React from "react";
 import { shallow } from "enzyme";
-import { Container, mapStateToProps, mapDispatchToProps } from "../Container.js";
+import {
+  Container,
+  mapStateToProps,
+  mapDispatchToProps
+} from "../Container.js";
 import { getStartingBooks } from "../../Actions";
 
-
 describe("Container", () => {
-    let mockStore = {};
-    let mockBooks = [{id:1, title: "something"}, {id:2, title: "something else"}]
+  let mockStore = {};
+  let mockBooks = [
+    { id: 1, title: "something" },
+    { id: 2, title: "something else" }
+  ];
   it("should match the snapshot", () => {
-    let wrapper = shallow(<Container books={mockBooks} store={mockStore}/>)
+    let wrapper = shallow(<Container books={mockBooks} store={mockStore} />);
     expect(wrapper).toMatchSnapshot();
   });
   describe("mapStateToProps", () => {
     it("should set props as an object with an array from state", () => {
       const mockState = {
         books: [
-          {id: 1, title: "Great Gastby"},
-          {id: 2, title:"Jurrasic Park"}
-        ] ,
+          { id: 1, title: "Great Gastby" },
+          { id: 2, title: "Jurrasic Park" }
+        ],
         mockError: "Something went wrong!"
       };
       const expected = {
         books: [
-          {id: 1, title: "Great Gastby"},
-          {id: 2, title:"Jurrasic Park"}
-        ] 
+          { id: 1, title: "Great Gastby" },
+          { id: 2, title: "Jurrasic Park" }
+        ]
       };
 
       const mappedProps = mapStateToProps(mockState);
@@ -37,9 +42,9 @@ describe("Container", () => {
       const mockDispatch = jest.fn();
       const mockState = {
         books: [
-          {id: 1, title: "Great Gastby"},
-          {id: 2, title:"Jurrasic Park"}
-        ]      
+          { id: 1, title: "Great Gastby" },
+          { id: 2, title: "Jurrasic Park" }
+        ]
       };
       const actionToDispatch = getStartingBooks(mockState);
       const mappedProps = mapDispatchToProps(mockDispatch);
