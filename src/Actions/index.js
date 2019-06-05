@@ -8,12 +8,12 @@ export const getBooks = (books) => ({
     message
   })
 
-  export const addFavorite = (id) => ({
+  export const addFavorite = (book) => ({
     type: "ADD_FAVORITE",
-    id
+    book
   })
   
-  export const deleteFavorite = (id) => ({
+  export const deleteFavorite = (book) => ({
     type: "DELETE_FAVORITE",
-    id
+    book
   })

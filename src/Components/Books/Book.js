@@ -10,6 +10,7 @@ export class Book extends Component {
 
   render() {
     let book = this.props.book;
+    console.log(book)
     return (
       <div className="book">
         <h5>{book.volumeInfo.title}</h5>
@@ -21,8 +22,8 @@ export class Book extends Component {
         </Link>
         <p>{book.volumeInfo.authors}</p>
 
-        <h6 onClick={() => this.addFavorite(this.props.book, "add")}>ADD</h6>
-        <h6 onClick={() => this.addFavorite(this.props.book.id, "delete")}>DELETE</h6>
+        <h6 onClick={() => this.addFavorite(book, "add")}>ADD</h6>
+        <h6 onClick={() => this.addFavorite(book, "delete")}>DELETE</h6>
       </div>
     );
   }

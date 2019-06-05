@@ -39,11 +39,11 @@ export class App extends Component {
     } else if (type === "delete") {
       this.props.deleteFavorite(book);
     }
-    this.updateStoreage();
+    setTimeout(() => {this.updateStoreage()}, 1000) ;
   };
 
   updateStoreage = () => {
-    window.localStorage.setItem("Favorite Books", this.props.favorites);
+    window.localStorage.setItem("Favorite Books", JSON.stringify(this.props.favorites));
   };
 
   render() {
