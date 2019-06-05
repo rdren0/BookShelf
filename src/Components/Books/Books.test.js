@@ -1,12 +1,36 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Book from "./Book";
+import { Book } from "./Book";
 
 describe("Book", () => {
+  let wrapper;
+  beforeEach(() => {
+    let book = { volumeInfo: { title: "Great Gatsby", authors: ["testing", "testing"] } };
+    let mockStore = {}
+    let mockFN = jest.fn()
+    wrapper = shallow(<Book book={book} store={mockStore} alterFavorites={mockFN} />);
+  })
   it("should match the snapshot", () => {
-    let book = { volumeInfo: { title: "Great Gatsby" } };
-
-    let wrapper = shallow(<Book book={book} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should render an add button when favorited is false', () => {
+    wrapper.setState({ favorited: false });
+    expect(wrapper).toMatchSnapshot();
+  })
+  it('should render a delete button when favorited is true', () => {
+    wrapper.setState({ favorited: true });
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('should call addFavorite when button is pressed', () => {
+    let MockFn = jest.spyOn(wrapper.instance(), "addFavorite");
+    let button  = wrapper.find('.favorites')
+    button.simulate('click')
+    expect(MockFn).toHaveBeenCalled()
+  })
+  it('renderAuthors should match snapshot', () => {
+    let results = wrapper.instance().renderAuthors()
+    expect(results).toMatchSnapshot()
+  })
 });

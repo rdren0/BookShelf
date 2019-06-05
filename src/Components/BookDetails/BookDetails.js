@@ -9,7 +9,8 @@ export const BookDetails = book => {
       <h5>{book.volumeInfo.title}</h5>
       <section className="purchase">
       {book.volumeInfo.imageLinks && (<img className="side-by-side" src={book.volumeInfo.imageLinks.thumbnail} alt="test" />)}
-      <button className="side-by-side">Purchase now!</button>
+      {book.saleInfo.buyLink && (<h5>{book.saleInfo.listPrice.amount}</h5> )}
+      {book.saleInfo.buyLink && (<a className="button" href={book.saleInfo.buyLink}>Purchase</a>)}
       </section>
       <p> {book.volumeInfo.description} </p>
       {/* istanbul ignore next */}

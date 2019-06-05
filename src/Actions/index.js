@@ -17,3 +17,8 @@ export const getBooks = (books) => ({
     type: "DELETE_FAVORITE",
     book
   })
+
+  export const hasErrored = (error) => ({
+    type: "HAS_ERRORED",
+    error
+  })

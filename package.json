@@ -48,7 +48,8 @@
       "!**/serviceWorker.js",
       "!src/index.js",
       "!src/setupTests.js",
-      "!src/Reducers/index.js"
+      "!src/Reducers/index.js",
+      "!src/API/key.js"
     ]
   }
 }

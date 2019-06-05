@@ -1,32 +1,51 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
 
 
 export class Book extends Component {
+  constructor(){
+    super();
+    this.state={
+      favorited: false,
+    }
+  }
+
   
   addFavorite = (book, value) => {
+    let newState = !this.state.favorited
+    this.setState({favorited: newState})
     this.props.alterFavorites(book,value);
   };
 
+  renderAuthors = () => {
+    return this.props.book.volumeInfo.authors.map(author => {
+      return (<p key={Date.now()}>{author}</p>)
+    })
+  }
+
   render() {
     let book = this.props.book;
-    console.log(book)
     return (
       <div className="book">
         <h5>{book.volumeInfo.title}</h5>
         <Link to={`/${book.id}`}>
-
-        {book.volumeInfo.imageLinks && (
-          <img src={book.volumeInfo.imageLinks.thumbnail} alt="test" />
-        )}
+        {book.volumeInfo.imageLinks && (<img src={book.volumeInfo.imageLinks.thumbnail} alt="test" />)}
         </Link>
-        <p>{book.volumeInfo.authors}</p>
-
-        <h6 onClick={() => this.addFavorite(book, "add")}>ADD</h6>
-        <h6 onClick={() => this.addFavorite(book, "delete")}>DELETE</h6>
+        {this.renderAuthors()}
+        {!this.state.favorited && (<button className="favorites" onClick={() => this.addFavorite(book, "add")}>ADD</button>)}
+        {this.state.favorited && (<button className="favorites" onClick={() => this.addFavorite(book, "delete")}>DELETE</button>)}
       </div>
     );
   }
 }
 
-export default Book;
+export const mapStateToProps = state => ({
+  favorites: state.favorites
+});
+
+
+export default connect(
+  mapStateToProps,
+  null
+)(Book);

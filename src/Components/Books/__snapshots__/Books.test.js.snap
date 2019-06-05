@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Book renderAuthors should match snapshot 1`] = `
+Array [
+  <p>
+    testing
+  </p>,
+  <p>
+    testing
+  </p>,
+]
+`;
+
 exports[`Book should match the snapshot 1`] = `ShallowWrapper {}`;
+
+exports[`Book should render a delete button when favorited is true 1`] = `ShallowWrapper {}`;
+
+exports[`Book should render an add button when favorited is false 1`] = `ShallowWrapper {}`;

@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import { App, mapStateToProps, mapDispatchToProps } from "./App";
-import { getBooks } from "../../Actions/index";
+import { getBooks, addFavorite, deleteFavorite } from "../../Actions/index";
 
 describe("App", () => {
   let wrapper;
@@ -35,6 +35,15 @@ describe("App", () => {
   });
 
   describe("mapDispatchToProps", () => {
+    let mockDistpatch = jest.fn();
+
+    it("should call dispatch on addFavorites", () => {
+      const mockState = [{ id: 3, title: "Red Dwarf" }];
+      const actionToDispatch = addFavorite(mockState);
+      const mappedProps = mapDispatchToProps(mockDistpatch);
+      mappedProps.addFavorite(mockState);
+      expect(mockDistpatch).toHaveBeenCalledWith(actionToDispatch);
+    });
     it("should call dispatch on getBooks", () => {
       const mockDispatch = jest.fn();
       const mockState = {
@@ -47,6 +56,28 @@ describe("App", () => {
       const mappedProps = mapDispatchToProps(mockDispatch);
       mappedProps.getBooks(mockState);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it("should call dispatch on deleteFavorites", () => {
+      const mockState = [{ id: 3, title: "Red Dwarf" }];
+      const actionToDispatch = deleteFavorite(mockState);
+      const mappedProps = mapDispatchToProps(mockDistpatch);
+      mappedProps.deleteFavorite(mockState);
+      expect(mockDistpatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+    it.skip("should call dispatch on anError", () => {
+      const mockState = { hasError: true };
+      const actionToDispatch = anError(mockState);
+      const mappedProps = mapDispatchToProps(mockDistpatch);
+      mappedProps.anError(mockState);
+      expect(mockDistpatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+    it.skip("should call dispatch on loading", () => {
+      const mockState = { isloadingr: false };
+      const actionToDispatch = loading(mockState);
+      const mappedProps = mapDispatchToProps(mockDistpatch);
+      mappedProps.loading(mockState);
+      expect(mockDistpatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
 });
