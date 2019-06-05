@@ -12,7 +12,8 @@ export const BookDetails = book => {
       {book.saleInfo.buyLink && (<h5>{book.saleInfo.listPrice.amount}</h5> )}
       {book.saleInfo.buyLink && (<a className="button" href={book.saleInfo.buyLink}>Purchase</a>)}
       </section>
-      <p> {book.volumeInfo.description} </p>
+      <p> Description: </p>
+      <p>{book.volumeInfo.description} </p>
       {/* istanbul ignore next */}
       <Link to={`/`} className='back-btn'>◀ back</Link>
     </div>
