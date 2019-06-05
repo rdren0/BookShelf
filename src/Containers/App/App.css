@@ -61,7 +61,7 @@ button.side-by-side{
 }
 
 .search-input{
-  width: 80%;
+  width: 70%;
   height: 100%;
   background-color: gainsboro;
   margin-bottom: 2px;
@@ -94,7 +94,7 @@ form{
 }
 
 .book{
-  width: 150px;
+  width: 180px;
   margin: 25px;
   min-height: 300px;
   max-height: 330px;
