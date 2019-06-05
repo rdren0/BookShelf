@@ -21,3 +21,13 @@ export const allBooks = (state = [], action) => {
       return state;
   }
 };
+
+export const anError = (state = '', action) => {
+  console.log(action)
+  switch(action.type){
+    case "HAS_ERRORED":
+    return action.error
+    default:
+      return state;
+  }
+}

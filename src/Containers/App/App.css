@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .menu-item {
     padding: 0 40px;
     margin: 5px 10px;
@@ -41,19 +44,29 @@ button.side-by-side{
   width: 40px;
   margin: 10px;
 }
+.search-bar{
+  background: #CCCCCC
+}
 
 .search-button{
   width:40px;
-  height: 63px;
-  margin: -2px;
+  height: 100%;
+  max-width: 100px;
+  margin-right: -10px;
+  border: none;
+  font-size: 25px;
+  background: none;
+  text-align: center;
+  padding: 5px;
 }
 
 .search-input{
-  width: 255px;
-  height: 60px;
+  width: 80%;
+  height: 100%;
   background-color: gainsboro;
-  border: 1px soldi black;
-  margin-bottom: 2px
+  margin-bottom: 2px;
+  padding: 15px;
+  font-size: 25px;
 }
 .button {
   margin: 10px;
@@ -66,21 +79,25 @@ button.side-by-side{
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
+  font-size: 25px;
+
 }
+form{
+  background: none;
+}
+
 
 .container{
 	display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: beige;
 }
 
 .book{
-  width: 140px;
-  margin: 20px;
-  min-height: 350px;
-  max-height: 380px;
-  overflow: hidden
+  width: 150px;
+  margin: 25px;
+  min-height: 300px;
+  max-height: 330px;
 }
 img{
   width: 130px;
@@ -89,7 +106,8 @@ img{
 
 
 h1{
-  text-align: center
+  text-align: center;
+  margin: 5px;
 }
 
 .favorites{
@@ -97,6 +115,41 @@ h1{
   width: 62px;
   height: 30px;
   margin: 3px;
-  display: inline;
   min-width: 40px;
+}
+
+p.ex1{
+  max-width: 50px;
+  overflow: hidden;
+}
+body{
+  background-image: url("https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: 100%;
+}
+
+@media (max-width: 600px) {
+  .search-button{
+    width:35px;
+    height: 100%;
+    max-width: 100px;
+    margin-right: -10px;
+    border: none;
+    font-size: 25px;
+    background: none;
+    text-align: center;
+  }
+  
+  .search-input{
+    width: 230px;
+    height: 100%;
+    background-color: gainsboro;
+    margin-bottom: 2px;
+    padding: 15px;
+    font-size: 25px;
+  }
+  .book{
+    margin: 20px;
+    width: 140px;
+
+  }
 }

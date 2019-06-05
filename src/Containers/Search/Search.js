@@ -19,7 +19,7 @@ constructor(){
 
     render() {
         return (
-            <div>
+            <div className="search-bar">
             <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
                 <input id="search-input" onChange={this.handleChange} value={this.state.query}placeholder="...search" className="search-input"/>
                 <button className="search-button">Search</button>

@@ -9,7 +9,7 @@ export class Nav extends Component {
 
     fetchCategory = async (value) => {
         /* istanbul ignore next */
-        await fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=+subject:${value}&projection=lite&orderBy=newest`
+        await fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=+subject:${value}&projection=lite`
         ).then(results => this.props.getBooks(results.items));
     }
     viewFavorites = () => {
