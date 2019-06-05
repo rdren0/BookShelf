@@ -23,7 +23,6 @@ export const allBooks = (state = [], action) => {
 };
 
 export const anError = (state = '', action) => {
-  console.log(action)
   switch(action.type){
     case "HAS_ERRORED":
     return action.error
