@@ -18,3 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ![2019-06-05 08 27 37](https://user-images.githubusercontent.com/39016273/58964353-fbf68b80-876b-11e9-9c7f-953e69973e2f.gif)
 ![2019-06-05 08 31 54](https://user-images.githubusercontent.com/39016273/58964604-6e676b80-876c-11e9-9601-f184f5928f57.gif)
 ![2019-06-05 08 32 54](https://user-images.githubusercontent.com/39016273/58964719-93f47500-876c-11e9-898e-5d3af7323841.gif)
+
+
+# Learning Goals:
+*Create an application using, react, redux, and router.
+*Utilize an API to collect and store data
+*Use localStorage in conjunction with redux
