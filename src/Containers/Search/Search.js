@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 export class Search extends Component {
 constructor(){
@@ -28,6 +30,9 @@ constructor(){
         )
     }
 }
+Search.propTypes = {
+    fetchCategory: PropTypes.func
+  };
 
 export default Search;
 

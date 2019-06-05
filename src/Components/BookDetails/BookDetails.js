@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const BookDetails = book => {
   return (
@@ -12,11 +13,15 @@ export const BookDetails = book => {
       {book.saleInfo.buyLink && (<h5>{book.saleInfo.listPrice.amount}</h5> )}
       {book.saleInfo.buyLink && (<a className="button" href={book.saleInfo.buyLink}>Purchase</a>)}
       </section>
-      <p> {book.volumeInfo.description} </p>
+      <p> Description: </p>
+      <p>{book.volumeInfo.description} </p>
       {/* istanbul ignore next */}
       <Link to={`/`} className='back-btn'>◀ back</Link>
     </div>
   );
+};
+BookDetails.propTypes = {
+  book: PropTypes.object
 };
 
 export default BookDetails;

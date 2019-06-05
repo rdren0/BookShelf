@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import '../../Containers/App/App.css';
 import { connect } from 'react-redux'
 import { getBooks } from "../../Actions";
-import { fetchBooks } from '../../API/fetch'
+import { fetchBooks } from '../../API/fetch';
+import PropTypes from 'prop-types';
+
 
 
 export class Nav extends Component {
@@ -31,6 +33,12 @@ export class Nav extends Component {
         )
     }
 }
+
+Nav.propTypes = {
+  favorites: PropTypes.array,
+  getBooks: PropTypes.func
+};
+
 
   export const mapStateToProps = (state) => ({
     favorites: state.favorites
