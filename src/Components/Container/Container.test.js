@@ -4,8 +4,8 @@ import {
   Container,
   mapStateToProps,
   mapDispatchToProps
-} from "../Container.js";
-import { getStartingBooks } from "../../Actions";
+} from "./Container";
+import { getBooks } from "../../Actions";
 
 describe("Container", () => {
   let mockStore = {};
@@ -46,9 +46,9 @@ describe("Container", () => {
           { id: 2, title: "Jurrasic Park" }
         ]
       };
-      const actionToDispatch = getStartingBooks(mockState);
+      const actionToDispatch = getBooks(mockState);
       const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.getStartingBooks(mockState);
+      mappedProps.getBooks(mockState);
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });

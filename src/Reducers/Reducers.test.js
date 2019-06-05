@@ -1,4 +1,4 @@
-import { allBooks } from "./allBooks";
+import { allBooks } from "./Reducers";
 import * as actions from "../Actions";
 
 describe("allBooksReducer", () => {
@@ -11,7 +11,7 @@ describe("allBooksReducer", () => {
     const expected = [{ 1: "book", 2: "book also" }];
     const result = allBooks(
       undefined,
-      actions.getStartingBooks([{ 1: "book", 2: "book also" }])
+      actions.getBooks([{ 1: "book", 2: "book also" }])
     );
     expect(result).toEqual(expected);
   });

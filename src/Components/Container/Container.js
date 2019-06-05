@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Book } from "../Books/Book";
 import { connect } from "react-redux";
-import { getStartingBooks } from "../../Actions";
+import { getBooks } from "../../Actions";
 
 export class Container extends Component {
   render() {
@@ -10,7 +10,7 @@ export class Container extends Component {
         <Book
           key={book.id}
           book={book}
-          addFavorites={this.props.addFavorites}
+          alterFavorites={this.props.alterFavorites}
         />
       );
       acc.push(newBook);
@@ -24,7 +24,7 @@ export const mapStateToProps = state => ({
   books: state.books
 });
 export const mapDispatchToProps = dispatch => ({
-  getStartingBooks: books => dispatch(getStartingBooks(books))
+  getBooks: books => dispatch(getBooks(books))
 });
 
 export default connect(
