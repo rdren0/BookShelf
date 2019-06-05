@@ -20,11 +20,10 @@ describe('Search', () => {
         input.simulate('change', mockEvent)
         expect(MockFn).toHaveBeenCalled()
     })
-    it('should call handleSubmit when submit', () => {
+    it('should call this.props.fetchCategory when submit', () => {
         let mockEvent = {target:{value: 'x'}, preventDefault:jest.fn()}
-        let MockFn = jest.spyOn(wrapper.instance(), "handleSubmit");
         let button = wrapper.find('form')
         button.simulate('submit', mockEvent)
-        expect(MockFn).toHaveBeenCalled()
+        expect(mockFN).toHaveBeenCalled()
     })
 })
