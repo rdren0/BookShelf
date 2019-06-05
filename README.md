@@ -21,6 +21,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 # Learning Goals:
-*Create an application using, react, redux, and router.
-*Utilize an API to collect and store data
-*Use localStorage in conjunction with redux
+* Create an application using, react, redux, and router.
+* Utilize an API to collect and store data
+* Use localStorage in conjunction with redux
