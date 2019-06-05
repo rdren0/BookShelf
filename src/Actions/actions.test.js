@@ -18,7 +18,7 @@ describe('Book Actions', () => {
     });
     describe('addFavorite',() => {
         it('returns a book object with a type of "ADD_FAVORITE"', () => {
-            const expected = {id:{book: {title: 'Jurrasic Park'}},type: 'ADD_FAVORITE'}
+            const expected = {book:{book: {title: 'Jurrasic Park'}},type: 'ADD_FAVORITE'}
             const result= actions.addFavorite({book: {title: 'Jurrasic Park'}})
             expect(result).toEqual(expected)
         })

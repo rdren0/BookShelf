@@ -21,7 +21,7 @@ constructor(){
         return (
             <div>
             <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-                <input  onChange={this.handleChange} value={this.state.query}placeholder="...search" className="search-input"/>
+                <input id="search-input" onChange={this.handleChange} value={this.state.query}placeholder="...search" className="search-input"/>
                 <button className="search-button">Search</button>
             </form>
             </div>
