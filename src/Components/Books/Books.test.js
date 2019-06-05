@@ -5,7 +5,7 @@ import { Book } from "./Book";
 describe("Book", () => {
   let wrapper;
   beforeEach(() => {
-    let book = { volumeInfo: { title: "Great Gatsby" } };
+    let book = { volumeInfo: { title: "Great Gatsby", authors: ["testing", "testing"] } };
     let mockStore = {}
     let mockFN = jest.fn()
     wrapper = shallow(<Book book={book} store={mockStore} alterFavorites={mockFN} />);
@@ -28,5 +28,9 @@ describe("Book", () => {
     let button  = wrapper.find('.favorites')
     button.simulate('click')
     expect(MockFn).toHaveBeenCalled()
+  })
+  it('renderAuthors should match snapshot', () => {
+    let results = wrapper.instance().renderAuthors()
+    expect(results).toMatchSnapshot()
   })
 });

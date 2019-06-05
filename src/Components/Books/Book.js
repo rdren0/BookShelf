@@ -18,6 +18,12 @@ export class Book extends Component {
     this.props.alterFavorites(book,value);
   };
 
+  renderAuthors = () => {
+    return this.props.book.volumeInfo.authors.map(author => {
+      return (<p key={Date.now()}>{author}</p>)
+    })
+  }
+
   render() {
     let book = this.props.book;
     return (
@@ -26,7 +32,7 @@ export class Book extends Component {
         <Link to={`/${book.id}`}>
         {book.volumeInfo.imageLinks && (<img src={book.volumeInfo.imageLinks.thumbnail} alt="test" />)}
         </Link>
-        <p>{book.volumeInfo.authors}</p>
+        {this.renderAuthors()}
         {!this.state.favorited && (<button className="favorites" onClick={() => this.addFavorite(book, "add")}>ADD</button>)}
         {this.state.favorited && (<button className="favorites" onClick={() => this.addFavorite(book, "delete")}>DELETE</button>)}
       </div>

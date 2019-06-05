@@ -9,11 +9,10 @@ describe("Book Details", () => {
   beforeEach(() => {
     mockStore = {};
     mockBook = { volumeInfo: { title: "Great Gatsby" }, saleInfo: {} };
-    wrapper = shallow(<BookDetails book={mockBook} store={mockStore} />);
+    wrapper = shallow(<BookDetails {...mockBook} />);
   });
 
   it("should match snapshot", () => {
-    console.log(wrapper);
     expect(wrapper).toMatchSnapshot();
   });
 });
