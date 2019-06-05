@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const BookDetails = book => {
   return (
@@ -18,6 +19,9 @@ export const BookDetails = book => {
       <Link to={`/`} className='back-btn'>◀ back</Link>
     </div>
   );
+};
+BookDetails.propTypes = {
+  book: PropTypes.object
 };
 
 export default BookDetails;

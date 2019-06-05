@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 
 
 export class Book extends Component {
@@ -39,6 +41,10 @@ export class Book extends Component {
     );
   }
 }
+Book.propTypes = {
+  book: PropTypes.object,
+  favorites: PropTypes.array
+};
 
 export const mapStateToProps = state => ({
   favorites: state.favorites

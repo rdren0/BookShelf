@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import Container from "../../Components/Container/Container";
 import BookDetails from "../../Components/BookDetails/BookDetails";
+import PropTypes from 'prop-types';
 import { key } from "../../API/key";
 import { Route } from "react-router-dom";
 import { Search } from "../Search/Search";
@@ -84,6 +85,14 @@ export class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  books: PropTypes.array,
+  favorites: PropTypes.array,
+  getBooks: PropTypes.func,
+  addFavorite: PropTypes.func,
+  deleteFavorite: PropTypes.func
+};
 
 export const mapStateToProps = state => ({
   books: state.books,
